@@ -1,5 +1,7 @@
 # bible
 
+Access the project here: [Bible](https://bible.vercel.app/).
+
 ## Build Setup
 
 ```bash
