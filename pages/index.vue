@@ -1,6 +1,15 @@
 <template>
   <div class="container">
+
     <b-row no-gutters class="books">
+      <b-form-input
+        id="input-2"
+        v-model="searchValue"
+        placeholder="Pesquise por livros..."
+        class="mt-1 mb-1"
+        @input="searchBook"
+      >
+      </b-form-input>
       <b-col 
         v-for="(book, index) in books" :key="index" 
         cols="12" 
@@ -27,9 +36,15 @@ export default {
   },
   data(){
     return {
-      books: []
+      books: [],
+      searchValue: ''
     }
   },
+  methods: {
+    async searchBook(){
+      this.books = await BibleService.searchBooks(this.searchValue)
+    }
+  }
 }
 </script>
 
